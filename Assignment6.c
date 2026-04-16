@@ -1,4 +1,4 @@
-//Program 1 (Iterative)
+//Iterative method
 
 #include <stdio.h>
 
@@ -15,7 +15,7 @@ int main() {
 }
 
 
-//Program 2 (Recursive)
+//Recursive method
 
 #include <stdio.h>
 
