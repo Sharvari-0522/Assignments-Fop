@@ -1,94 +1,58 @@
-//Program 1 (Square)
-
-#include <stdio.h>
-int main(){
-    int n;
-    scanf("%d",&n);
-    printf("%d",n*n);
-    return 0;
-}
-
-
-
-//Program 2 (Cube)
-
-#include <stdio.h>
-int main(){
-    int n;
-    scanf("%d",&n);
-    printf("%d",n*n*n);
-    return 0;
-}
-
-
-
-//Program 3 (Square Root)
-
 #include <stdio.h>
 #include <math.h>
-int main(){
-    int n;
-    scanf("%d",&n);
-    printf("%.2f",sqrt(n));
-    return 0;
-}
 
+int main() {
+    int num;
+    long long factorial = 1;
+    int isPrime = 1;
 
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
 
-//Program 4 (Prime Check)
+    // a) Square root
+    if (num >= 0)
+        printf("Square root: %.2f\n", sqrt(num));
+    else
+        printf("Square root: Not defined for negative numbers\n");
 
-#include <stdio.h>
-int main(){
-    int n,i,flag=1;
-    scanf("%d",&n);
+    // b) Square
+    printf("Square: %d\n", num * num);
 
-    if(n<=1) flag=0;
+    // c) Cube
+    printf("Cube: %d\n", num * num * num);
 
-    for(i=2;i<=n/2;i++){
-        if(n%i==0){
-            flag=0;
-            break;
+    // d) Check if prime
+    if (num <= 1) {
+        isPrime = 0;
+    } else {
+        for (int i = 2; i <= sqrt(num); i++) {
+            if (num % i == 0) {
+                isPrime = 0;
+                break;
+            }
         }
     }
+    printf("Is prime: %s\n", isPrime ? "Yes" : "No");
 
-    if(flag) printf("Prime");
-    else printf("Not Prime");
-
-    return 0;
-}
-
-
-
-//Program 5 (Factorial)
-
-#include <stdio.h>
-int main(){
-    int n,i,f=1;
-    scanf("%d",&n);
-
-    for(i=1;i<=n;i++)
-        f*=i;
-
-    printf("%d",f);
-
-    return 0;
-}
-
-
-
-//Program 6 (Prime Factors)
-
-#include <stdio.h>
-int main(){
-    int n,i;
-    scanf("%d",&n);
-
-    for(i=2;i<=n;i++){
-        while(n%i==0){
-            printf("%d ",i);
-            n/=i;
-        }
+    // e) Factorial
+    if (num < 0) {
+        printf("Factorial: Not defined for negative numbers\n");
+    } else {
+        for (int i = 1; i <= num; i++) factorial *= i;
+        printf("Factorial: %lld\n", factorial);
     }
 
+    // f) Prime factors
+    printf("Prime factors: ");
+    int temp = num;
+    for (int i = 2; i <= temp; i++) {
+        while (temp % i == 0) {
+            printf("%d ", i);
+            temp /= i;
+        }
+    }
+    printf("\n");
+
     return 0;
 }
+
