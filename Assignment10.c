@@ -1,91 +1,54 @@
-//Program 1 (Addition)
-
 #include <stdio.h>
+#include <math.h>
 
-int main(){
-    int a,b;
-    scanf("%d %d",&a,&b);
-    printf("%d",a+b);
-    return 0;
-}
+int main() {
+    int choice;
+    double num1, num2, result;
+    long long fact = 1;
 
+    printf("--- Simple Calculator ---\n");
+    printf("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Power (x^y)\n6. Factorial (x!)\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
 
-
-
-//Program 2 (Subtraction)
-
-#include <stdio.h>
-
-int main(){
-    int a,b;
-    scanf("%d %d",&a,&b);
-    printf("%d",a-b);
-    return 0;
-}
-
-
-
-//Program 3 (Multiplication)
-
-#include <stdio.h>
-
-int main(){
-    int a,b;
-    scanf("%d %d",&a,&b);
-    printf("%d",a*b);
-    return 0;
-}
-
-
-
-//Program 4 (Division)
-
-#include <stdio.h>
-
-int main(){
-    float a,b;
-    scanf("%f %f",&a,&b);
-
-    if(b!=0)
-        printf("%.2f",a/b);
-    else
-        printf("Error");
-
-    return 0;
-}
-
-
-
-//Program 5 (Power)
-
-#include <stdio.h>
-
-int main(){
-    int x,y,i,p=1;
-    scanf("%d %d",&x,&y);
-
-    for(i=1;i<=y;i++)
-        p*=x;
-
-    printf("%d",p);
-
-    return 0;
-}
-
-
-
-//Program 6 (Factorial)
-
-#include <stdio.h>
-
-int main(){
-    int n,i,f=1;
-    scanf("%d",&n);
-
-    for(i=1;i<=n;i++)
-        f*=i;
-
-    printf("%d",f);
+    switch(choice) {
+        case 1:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &num1, &num2);
+            printf("Result: %.2f\n", num1 + num2);
+            break;
+        case 2:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &num1, &num2);
+            printf("Result: %.2f\n", num1 - num2);
+            break;
+        case 3:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &num1, &num2);
+            printf("Result: %.2f\n", num1 * num2);
+            break;
+        case 4:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &num1, &num2);
+            if(num2 != 0)
+                printf("Result: %.2f\n", num1 / num2);
+            else
+                printf("Error! Division by zero.\n");
+            break;
+        case 5:
+            printf("Enter base and exponent: ");
+            scanf("%lf %lf", &num1, &num2);
+            printf("Result: %.2f\n", pow(num1, num2));
+            break;
+        case 6:
+            printf("Enter an integer: ");
+            scanf("%lf", &num1);
+            for(int i = 1; i <= (int)num1; ++i) fact *= i;
+            printf("Result: %lld\n", fact);
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
 
     return 0;
 }
